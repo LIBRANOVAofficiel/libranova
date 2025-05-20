@@ -80,7 +80,7 @@ footer {
   background-image: url('images/banniere-libranova.png');
   background-size: cover;
   background-position: center;
-  height: 100hv;
+  height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
