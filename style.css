@@ -69,3 +69,10 @@ footer {
     margin: 0 10px;
     vertical-align: middle;
 }
+.slogan {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  font-style: italic;
+  text-align: center;
+}
