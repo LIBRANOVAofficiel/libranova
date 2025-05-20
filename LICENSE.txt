@@ -1,0 +1,22 @@
+LICENCE DU PROJET LIBRANOVA
+
+Ce projet (textes, visuels, logo, chants, site) est protégé par la licence :
+
+Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 International (CC BY-NC-ND 4.0)
+
+Vous êtes autorisé à :
+
+- Partager — copier, distribuer et communiquer le contenu par tous moyens et sous tous formats
+
+Selon les conditions suivantes :
+
+- Attribution — Vous devez créditer l’œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées (ce qui est interdit ici).
+- Pas d’utilisation commerciale — Vous ne pouvez pas utiliser ce contenu à des fins commerciales.
+- Pas de modifications — Vous ne pouvez pas modifier, transformer ou adapter ce contenu.
+
+Aucune des conditions ci-dessus ne peut être ignorée sans autorisation explicite écrite.
+
+Droits réservés : 
+© Le porteur de LIBRANOVA – 2025 
+Contact : libranova.contact@gmail.com 
+Dépôt d’origine : [https://libranovaofficiel.github.io/libranova](https://libranovaofficiel.github.io/libranova)
