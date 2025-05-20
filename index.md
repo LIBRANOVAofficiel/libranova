@@ -49,7 +49,7 @@ Cela signifie :
 - ❌ Non utilisables à des fins commerciales
 
 Auteur : Le porteur de LIBRANOVA - 2025 
-Contact : libranova.conatac@gmail.com 
+Contact : libranova.contac@gmail.com
 
 ---
 
