@@ -16,7 +16,7 @@ Un monde sans argent, sans frontière, sans domination, où chaque être humain 
 Le manifeste présente en détail notre projet, nos valeurs, et nos propositions concrètes. 
 **Disponible gratuitement et sous licence libre.**
 
-👉 [📘 Télécharger le Manifeste LIBRANOVA (PDF)](./Manifeste_LIBRANOVA.pdf)
+👉 [📘 Télécharger le Manifeste LIBRANOVA (PDF)](./Maniféste-LIBRANOVA.pdf)
 
 ---
 
