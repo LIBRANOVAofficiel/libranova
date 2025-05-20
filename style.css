@@ -77,5 +77,14 @@ footer {
   text-align: center;
 }
 .hero-banner {
-  background-image: url('images/banniere-libranova.jpg');
+  background-image: url('images/banniere-libranova.png');
+  background-size: cover;
+  background-position: center;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: white;
 }
