@@ -76,3 +76,6 @@ footer {
   font-style: italic;
   text-align: center;
 }
+.hero-banner {
+  background-image: url('images/banniere-libranova.jpg');
+}
