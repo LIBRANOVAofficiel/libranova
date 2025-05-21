@@ -226,3 +226,14 @@ compteur-section {
   font-style: italic;
   color: #eee;
 }
+#visitor-count {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 10px;
+  z-index: 10;
+  position: relative;
+}
