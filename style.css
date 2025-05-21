@@ -192,3 +192,37 @@ a {
   margin: 1.5rem auto;
   max-width: 1000px;
 }
+compteur-section {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.banniere-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banniere-texte {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  max-width: 90%;
+}
+
+.banniere-texte h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.banniere-texte .citation {
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-style: italic;
+  color: #eee;
+}
