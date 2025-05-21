@@ -192,7 +192,7 @@ a {
   margin: 1.5rem auto;
   max-width: 1000px;
 }
-compteur-section {
+.compteur-section {
   position: relative;
   text-align: center;
   color: white;
