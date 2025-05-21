@@ -212,10 +212,12 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 10px;
-  max-width: 90%;
+  width: 90%;
+  max-width: 1000px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .banniere-texte h2 {
