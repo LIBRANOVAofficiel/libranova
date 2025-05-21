@@ -7,41 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-    const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co'
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8'
-
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-
-    async function logVisit() {
-      const { error } = await supabase.from('VISITS').insert({})
-      if (error) {
-        console.error('Erreur d’enregistrement de la visite :', error.message)
-      }
-    }
-
-    async function getVisitCount() {
-      const { data, error } = await supabase.from('VISITS').select('id')
-      if (error) {
-        console.error('Erreur de récupération du compteur :', error.message)
-        return null
-      }
-      return data.length
-    }
-
-    document.addEventListener('DOMContentLoaded', async () => {
-      await logVisit()
-      const count = await getVisitCount()
-      const counterDisplay = document.getElementById('visitor-count')
-      if (counterDisplay && count !== null) {
-        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
-      } else {
-        counterDisplay.textContent = `Compteur indisponible.`
-      }
-    })
-  </script>
+  
 </head>
 
 <body>
@@ -180,5 +146,40 @@
     <p>© 2025 LIBRANOVA | Licence CC BY-NC-ND 4.0</p>
   </footer>
 </body>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8'
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+    async function logVisit() {
+      const { error } = await supabase.from('VISITS').insert({})
+      if (error) {
+        console.error('Erreur d’enregistrement de la visite :', error.message)
+      }
+    }
+
+    async function getVisitCount() {
+      const { data, error } = await supabase.from('VISITS').select('id')
+      if (error) {
+        console.error('Erreur de récupération du compteur :', error.message)
+        return null
+      }
+      return data.length
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await logVisit()
+      const count = await getVisitCount()
+      const counterDisplay = document.getElementById('visitor-count')
+      if (counterDisplay && count !== null) {
+        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
+      } else {
+        counterDisplay.textContent = `Compteur indisponible.`
+      }
+    })
+  </script>
 </html>
 
