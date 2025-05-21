@@ -167,6 +167,8 @@ footer {
 a {
   color: #0e2f44;
 }
+
+/* ----- Section Commentaires ----- */
 #commentaires {
   margin-top: 2rem;
 }
@@ -192,7 +194,9 @@ a {
   margin: 1.5rem auto;
   max-width: 1000px;
 }
-compteur-section {
+
+/* ----- Compteur de visiteurs ----- */
+.compteur-section {
   position: relative;
   text-align: center;
   color: white;
