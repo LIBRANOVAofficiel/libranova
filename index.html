@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIBRANOVA - Pour un nouveau monde</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-<body>
-    <body>
-  <!-- ... tout ton contenu ... -->
-<div id="visitor-count" style="text-align: center; font-size: 1.5rem; margin-top: 2rem;">
-  Chargement du compteur...
-</div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>    
-  <script src="js/counter.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      await logVisit();
-      const count = await getVisitCount();
-      const counterDisplay = document.getElementById("visitor-count");
-      if (counterDisplay && count !== null) {
-        counterDisplay.textContent = `Nombre de visiteurs : ${count}`;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LIBRANOVA - Pour un nouveau monde</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8'
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+    async function logVisit() {
+      const { error } = await supabase.from('VISITS').insert({})
+      if (error) {
+        console.error('Erreur d’enregistrement de la visite :', error.message)
       }
-    });
+    }
+
+    async function getVisitCount() {
+      const { data, error } = await supabase.from('VISITS').select('id')
+      if (error) {
+        console.error('Erreur de récupération du compteur :', error.message)
+        return null
+      }
+      return data.length
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await logVisit()
+      const count = await getVisitCount()
+      const counterDisplay = document.getElementById('visitor-count')
+      if (counterDisplay && count !== null) {
+        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
+      } else {
+        counterDisplay.textContent = `Compteur indisponible.`
+      }
+    })
   </script>
+</head>
+
 </body>
     <header class="hero-banner">
       <div class="overlay">
         <h1>LIBRANOVA</h1>
         <p class="slogan">Pour un nouveau monde, s'unir pour partager, s'éveiller pour changer.
-                          Ensemble, bâtissons un monde libéré des chaines de l'injustice.</p>
+                          Ensemble, bâtissons un monde libéré des chaines de l'injustice.
+        </p>
       </div>
     </header>
 
@@ -165,10 +183,10 @@ Ces chants sont protégés par la licence CC BY-NC-ND 4.0. Partage libre sans us
   <!-- Compteur centré -->
   <div style="text-align: center; margin-top: 1.5rem;">
     <script src="https://cdn.counter.dev/script.js" data-id="37af6a9b-8fd5-4ed9-9f0c-98d563073969" data-utcoffset="2"></script>
-  </div>
-     <div id="visitor-count" style="text-align: center; font-size: 1.5rem; margin-top: 2rem;">
-  Chargement du compteur...
-</div>
+ <section id="compteur">
+    <h2 style="text-align: center;">Visiteurs du site</h2>
+    <div id="visitor-count" style="text-align: center; font-size: 1.5rem; margin-top: 1rem;">Chargement du compteur...</div>
+  </section>
 </section>
     <footer>
         <div style="text-align: center;">
