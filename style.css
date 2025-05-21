@@ -249,3 +249,16 @@ a {
   border-radius: 12px;
   display: block;
 }
+#visitor-count {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
