@@ -100,6 +100,10 @@
         Signer la pétition LIBRANOVA
       </a>
     </div>
+    <div class="like-container">
+  <button class="like-button" onclick="handleLike()">❤️ J’aime</button>
+  <span id="like-count">Chargement...</span>
+</div>
   </section>
 
   <section id="commentaires">
@@ -165,5 +169,54 @@
       }
     })
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8';
+  const TABLE_NAME = 'likes';
+
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  function getOrCreateVisitorId() {
+    let id = localStorage.getItem('visitor_id');
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem('visitor_id', id);
+    }
+    return id;
+  }
+
+  async function fetchLikeCount() {
+    const { count, error } = await supabase
+      .from(TABLE_NAME)
+      .select('*', { count: 'exact', head: true });
+
+    if (!error) {
+      document.getElementById('like-count').textContent = `${count} j'aime`;
+    }
+  }
+
+  async function handleLike() {
+    const visitorId = getOrCreateVisitorId();
+
+    const { data: existing } = await supabase
+      .from(TABLE_NAME)
+      .select('*')
+      .eq('ip_hash', visitorId);
+
+    if (existing.length > 0) return; // Déjà liké
+
+    const { error } = await supabase
+      .from(TABLE_NAME)
+      .insert({ ip_hash: visitorId });
+
+    if (!error) {
+      document.querySelector('.like-button').classList.add('clicked');
+      fetchLikeCount();
+    }
+  }
+
+  fetchLikeCount();
+</script>
 </body>
 </html>
