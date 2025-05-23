@@ -262,3 +262,22 @@ a {
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
+.like-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.like-button {
+  font-size: 1.5em;
+  background: none;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.like-button.clicked {
+  color: red;
+  border-color: red;
+}
