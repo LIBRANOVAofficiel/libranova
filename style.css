@@ -239,6 +239,7 @@ a {
   border-radius: 10px;
   color: black;
   font-size: 1.3rem;
+  font-weight: bold;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
