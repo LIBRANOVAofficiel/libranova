@@ -142,11 +142,10 @@
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8'
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    const supabaseCounter = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    async function logVisit() {
+   async function logVisit() {
   const visitorId = getOrCreateVisitorId();
 
-  const { data: existing, error: checkError } = await supabaseCounter
+  const { data: existing, error: checkError } = await supabase
     .from('VISITS')
     .select('*')
     .eq('visitor_id', visitorId);
@@ -157,7 +156,7 @@
   }
 
   if (existing.length === 0) {
-    const { error: insertError } = await supabaseCounter
+    const { error: insertError } = await supabase
       .from('VISITS')
       .insert([{ visitor_id: visitorId }]);
 
