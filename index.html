@@ -199,7 +199,7 @@
     }
   }
 
-  async function handleLike() {
+  async function handleLike()console.log("Identifiant visiteur =", visitorId); {
     const visitorId = getOrCreateVisitorId();
 
     const { data: existing, error: selectError } = await supabaseLike
