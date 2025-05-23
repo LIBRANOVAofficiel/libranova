@@ -144,11 +144,30 @@
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
     async function logVisit() {
-      const { error } = await supabase.from('VISITS').insert({})
-      if (error) {
-        console.error('Erreur enregistrement de la visite :', error.message)
-      }
+  const visitorId = getOrCreateVisitorId();
+
+  const { data: existing, error: checkError } = await supabaseCounter
+    .from('VISITS')
+    .select('*')
+    .eq('visitor_id', visitorId);
+
+  if (checkError) {
+    console.error('Erreur de vérification du visiteur :', checkError.message);
+    return;
+  }
+
+  if (existing.length === 0) {
+    const { error: insertError } = await supabaseCounter
+      .from('VISITS')
+      .insert([{ visitor_id: visitorId }]);
+
+    if (insertError) {
+      console.error('Erreur enregistrement de la visite :', insertError.message);
     }
+  } else {
+    console.log('Visite déjà enregistrée');
+  }
+}
 
     async function getVisitCount() {
       const { data, error } = await supabase.from('VISITS').select('id')
