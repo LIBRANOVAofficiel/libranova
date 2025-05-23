@@ -179,13 +179,13 @@
   const supabaseLike = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   function getOrCreateVisitorId() {
-    let id = localStorage.getItem('visitor_id');
-    if (!id) {
-      id = crypto.randomUUID();
-      localStorage.setItem('visitor_id', id);
-    }
-    return id;
+  let id = localStorage.getItem('visitor_id');
+  if (!id) {
+    id = (Math.random().toString(36).substring(2)) + Date.now().toString(36);
+    localStorage.setItem('visitor_id', id);
   }
+  return id;
+}
 
   async function fetchLikeCount() {
     const { count, error } = await supabaseLike
