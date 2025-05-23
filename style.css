@@ -229,13 +229,6 @@ a {
   color: #eee;
 }
 
-.compteur-section img.banniere-image {
-  width: 100%;
-  height: 640px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
 #visitor-count {
   position: absolute;
   bottom: 2rem;
