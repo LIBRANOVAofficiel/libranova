@@ -229,7 +229,7 @@ a {
   color: #eee;
 }
 
-.compteur-section .banniere-image {
+.compteur-section img.banniere-image {
   width: 100%;
   height: 640px;
   object-fit: cover;
