@@ -202,37 +202,37 @@
     }
 
     async function handleLike() {
-      const visitorId = getOrCreateVisitorId();
-      console.log("visitorId =", visitorId);
+  const visitorId = getOrCreateVisitorId();
+  console.log("visitorId =", visitorId);
 
-      const { data: existing, error: selectError } = await supabaseLike
-        .from(TABLE_NAME)
-        .select('*')
-        .eq('ip_hash', visitorId);
+  // Vérifier existence d'un like
+  const { data: existing, error: selectError } = await supabaseLike
+    .from('likes')
+    .select('*')
+    .eq('ip_hash', visitorId);
 
-      if (selectError) {
-        console.error("Erreur de vérification du like :", selectError.message);
-        return;
-      }
+  if (selectError) {
+    console.error("Erreur de vérification du like :", selectError.message);
+    return;
+  }
 
-      if (existing.length > 0) {
-        console.log("Déjà liké, aucune action");
-        return;
-      }
+  if (existing && existing.length > 0) {
+    console.log("Déjà liké");
+    return;
+  }
 
-      const { error: insertError } = await supabaseLike
-        .from(TABLE_NAME)
-        .insert({ ip_hash: visitorId });
+  // Enregistrer le like
+  const { error: insertError } = await supabaseLike
+    .from('likes')
+    .insert([{ ip_hash: visitorId }]);  // << CLÉ : tableau + nom de champ bien orthographié
 
-      if (!insertError) {
-        console.log("Like enregistré !");
-        document.querySelector('.like-button').classList.add('clicked');
-        fetchLikeCount();
-      } else {
-        console.error("Erreur d'enregistrement du like :", insertError.message);
-      }
-    }
-
+  if (!insertError) {
+    document.querySelector('.like-button').classList.add('clicked');
+    fetchLikeCount();
+  } else {
+    console.error("Erreur d'enregistrement du like :", insertError.message);
+  }
+}
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("like-btn").addEventListener("click", handleLike);
       fetchLikeCount();
