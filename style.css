@@ -172,7 +172,6 @@ a {
 }
 
 #commentaires .hero-banner {
-  background-image: url('images/banniere-utopie-commentaire.png');
   background-size: cover;
   background-position: center;
   height: 320px;
@@ -193,7 +192,6 @@ a {
   max-width: 1000px;
 }
 .compteur-section {
-  background-image: url('images/banniere-utopie-avis-libranova.png');
   background-size: cover;
   background-position: center;
   position: relative;
