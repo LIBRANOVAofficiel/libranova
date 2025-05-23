@@ -170,12 +170,13 @@
     })
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
   const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8';
   const TABLE_NAME = 'likes';
 
-  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const supabaseLike = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   function getOrCreateVisitorId() {
     let id = localStorage.getItem('visitor_id');
@@ -187,32 +188,41 @@
   }
 
   async function fetchLikeCount() {
-    const { count, error } = await supabase
+    const { count, error } = await supabaseLike
       .from(TABLE_NAME)
       .select('*', { count: 'exact', head: true });
 
     if (!error) {
       document.getElementById('like-count').textContent = `${count} j'aime`;
+    } else {
+      console.error("Erreur chargement likes :", error.message);
     }
   }
 
   async function handleLike() {
     const visitorId = getOrCreateVisitorId();
 
-    const { data: existing } = await supabase
+    const { data: existing, error: selectError } = await supabaseLike
       .from(TABLE_NAME)
       .select('*')
       .eq('ip_hash', visitorId);
 
+    if (selectError) {
+      console.error("Erreur de vérification du like :", selectError.message);
+      return;
+    }
+
     if (existing.length > 0) return; // Déjà liké
 
-    const { error } = await supabase
+    const { error: insertError } = await supabaseLike
       .from(TABLE_NAME)
       .insert({ ip_hash: visitorId });
 
-    if (!error) {
+    if (!insertError) {
       document.querySelector('.like-button').classList.add('clicked');
       fetchLikeCount();
+    } else {
+      console.error("Erreur d'enregistrement du like :", insertError.message);
     }
   }
 
