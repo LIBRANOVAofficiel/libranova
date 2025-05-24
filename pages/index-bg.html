@@ -205,5 +205,126 @@
     </a>
   </p>
 </footer>
+   <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8'
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+   async function logVisit() {
+  const visitorId = getOrCreateVisitorId();
+
+  const { data: existing, error: checkError } = await supabase
+    .from('VISITS')
+    .select('*')
+    .eq('visitor_id', visitorId);
+
+  if (checkError) {
+    console.error('Erreur de vérification du visiteur :', checkError.message);
+    return;
+  }
+
+  if (existing.length === 0) {
+    const { error: insertError } = await supabase
+      .from('VISITS')
+      .insert([{ visitor_id: visitorId }]);
+
+    if (insertError) {
+      console.error('Erreur enregistrement de la visite :', insertError.message);
+    }
+  } else {
+    console.log('Visite déjà enregistrée');
+  }
+}
+
+    async function getVisitCount() {
+      const { data, error } = await supabase.from('VISITS').select('id')
+      if (error) {
+        console.error('Erreur récupération compteur :', error.message)
+        return null
+      }
+      return data.length
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await logVisit()
+      const count = await getVisitCount()
+      const counterDisplay = document.getElementById('visitor-count')
+      if (counterDisplay && count !== null) {
+        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
+      } else {
+        counterDisplay.textContent = `Compteur indisponible.`
+      }
+    })
+  </script>
+
+  <!-- Script bouton Like -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const SUPABASE_URL = 'https://sbvczmythudfntzgofjw.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNidmN6bXl0aHVkZm50emdvZmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NDk0NjAsImV4cCI6MjA2MzQyNTQ2MH0.chVFdhJFUU1JBsuiDVENggcDlrxq3gEDNK7TEa5aub8';
+    const TABLE_NAME = 'likes';
+
+    const supabaseLike = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    function getOrCreateVisitorId() {
+      let id = localStorage.getItem('visitor_id');
+      if (!id) {
+        id = (Math.random().toString(36).substring(2)) + Date.now().toString(36);
+        localStorage.setItem('visitor_id', id);
+      }
+      return id;
+    }
+
+    async function fetchLikeCount() {
+      const { count, error } = await supabaseLike
+        .from(TABLE_NAME)
+        .select('*', { count: 'exact', head: true });
+
+      if (!error) {
+        document.getElementById('like-count').textContent = `${count} j'aime`;
+      } else {
+        console.error("Erreur chargement likes :", error.message);
+      }
+    }
+
+    async function handleLike() {
+  const visitorId = getOrCreateVisitorId();
+  console.log("visitorId =", visitorId);
+
+  // Vérifier existence d'un like
+  const { data: existing, error: selectError } = await supabaseLike
+    .from('likes')
+    .select('*')
+    .eq('ip_hash', visitorId);
+
+  if (selectError) {
+    console.error("Erreur de vérification du like :", selectError.message);
+    return;
+  }
+
+  if (existing && existing.length > 0) {
+    console.log("Déjà liké");
+    return;
+  }
+
+  // Enregistrer le like
+  const { error: insertError } = await supabaseLike
+    .from('likes')
+    .insert([{ ip_hash: visitorId }]);  // << CLÉ : tableau + nom de champ bien orthographié
+
+  if (!insertError) {
+    document.querySelector('.like-button').classList.add('clicked');
+    fetchLikeCount();
+  } else {
+    console.error("Erreur d'enregistrement du like :", insertError.message);
+  }
+}
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("like-btn").addEventListener("click", handleLike);
+      fetchLikeCount();
+    });
+  </script>
 </body>
 </html>
