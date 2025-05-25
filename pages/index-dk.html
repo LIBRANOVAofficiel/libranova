@@ -276,15 +276,16 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      await logVisit()
-      const count = await getVisitCount()
-      const counterDisplay = document.getElementById('visitor-count')
-      if (counterDisplay && count !== null) {
-        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
-      } else {
-        counterDisplay.textContent = `Compteur indisponible.`
-      }
-    })
+  await logVisit();
+  const count = await getVisitCount();
+  const counterDisplay = document.getElementById('visitor-count');
+
+  if (counterDisplay && count !== null) {
+    counterDisplay.textContent = `Antal besøgende: ${count}`;
+  } else {
+    counterDisplay.textContent = `Tælleren er ikke tilgængelig.`;
+  }
+});
   </script>
 
   <!-- Script bouton Like -->
