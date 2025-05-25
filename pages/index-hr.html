@@ -277,15 +277,16 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      await logVisit()
-      const count = await getVisitCount()
-      const counterDisplay = document.getElementById('visitor-count')
-      if (counterDisplay && count !== null) {
-        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
-      } else {
-        counterDisplay.textContent = `Compteur indisponible.`
-      }
-    })
+  await logVisit();
+  const count = await getVisitCount();
+  const counterDisplay = document.getElementById('visitor-count');
+
+  if (counterDisplay && count !== null) {
+    counterDisplay.textContent = `Broj posjetitelja: ${count}`;
+  } else {
+    counterDisplay.textContent = `Brojač nije dostupan.`;
+  }
+});
   </script>
 
   <!-- Script bouton Like -->
