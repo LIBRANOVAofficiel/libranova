@@ -284,15 +284,17 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      await logVisit()
-      const count = await getVisitCount()
-      const counterDisplay = document.getElementById('visitor-count')
-      if (counterDisplay && count !== null) {
-        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
-      } else {
-        counterDisplay.textContent = `Compteur indisponible.`
-      }
-    })
+  await logVisit();
+  const count = await getVisitCount();
+  const counterDisplay = document.getElementById('visitor-count');
+
+  if (counterDisplay && count !== null) {
+    counterDisplay.textContent = `Počet návštěvníků: ${count}`;
+  } else {
+    counterDisplay.textContent = `Počítadlo není k dispozici.`;
+  }
+});
+
   </script>
 
   <!-- Script bouton Like -->
