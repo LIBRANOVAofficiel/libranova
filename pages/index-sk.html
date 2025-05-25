@@ -290,9 +290,9 @@
       const count = await getVisitCount()
       const counterDisplay = document.getElementById('visitor-count')
       if (counterDisplay && count !== null) {
-        counterDisplay.textContent = `Nombre de visiteurs : ${count}`
+        counterDisplay.textContent = `Počet návštevníkov: ${count}`
       } else {
-        counterDisplay.textContent = `Compteur indisponible.`
+        counterDisplay.textContent = `Počítadlo nie je dostupné.`
       }
     })
   </script>
