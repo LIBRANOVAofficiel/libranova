@@ -274,15 +274,17 @@
  }
 
  document.addEventListener('DOMContentLoaded', async () => {
-   await logVisit()
-   const count = await getVisitCount()
-   const counterDisplay = document.getElementById('visitor-count')
-   if (counterDisplay && count !== null) {
-     counterDisplay.textContent = `Number of visitors: ${count}`
-   } else {
-     counterDisplay.textContent = `Counter unavailable.`
-   }
- })
+  await logVisit();
+  const count = await getVisitCount();
+  const counterDisplay = document.getElementById('visitor-count');
+
+  if (counterDisplay && count !== null) {
+    counterDisplay.textContent = `Lankytojų skaičius: ${count}`;
+  } else {
+    counterDisplay.textContent = `Skaitiklis nepasiekiamas.`;
+  }
+});
+
 
  function getOrCreateVisitorId() {
    let id = localStorage.getItem('visitor_id');
