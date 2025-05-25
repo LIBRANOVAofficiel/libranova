@@ -1,86 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://libranovaofficiel.github.io/libranova/index.html</loc>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-bg.html</loc>
-  </url>
-
-  <url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-cz.html</loc>
-  </url>
-
-  <url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-de.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-dk.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-ee.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-en.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-es.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-gr.html</loc>
-  </url>g
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-hr.html</loc>
-  </url>
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-hu.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-it.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-lt.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-lv.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-pt.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-ro.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-se.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-si.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-sk.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-pl.html</loc>
-  </url>
-
-<url>
-    <loc>https://libranovaofficiel.github.io/libranova/pages/index-nl.html</loc>
-  </url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/index.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-en.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-de.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-bg.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-hr.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-dk.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-es.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-ee.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-gr.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-hu.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-it.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-lv.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-lt.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-nl.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-pl.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-pt.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-cz.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-ro.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-si.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-se.html</loc></url>
+  <url><loc>https://libranovaofficiel.github.io/libranova/pages/index-sk.html</loc></url>
+</urlset>
