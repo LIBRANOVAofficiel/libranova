@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://libranovaofficiel.github.io/libranova/sitemap.xml
+Sitemap: https://libranovaofficiel.github.io/libranova/sitemap.txt
 
