@@ -3,9 +3,12 @@
 LIBRANOVA est une vision d’un monde libéré de l’argent, fondée sur la participation collective, l’égalité humaine et le respect des ressources planétaires.
 
 Ce projet comprend :
-- Un manifeste fondateur
+- Un manifeste fondateur + ces traductions
 - Des visuels représentatifs
-- Le Chant de l’Âme (voix synthétiques)
+- Le Chant de l’Âme
+- Les freestyles
+- Les musiques
+- La charte fondatrice + ces traductions
 - Un logo et des éléments graphiques
 - Ce site web de présentation
 
